@@ -1,0 +1,14 @@
+debian/warnquota.conf			 	/etc
+debian/quotatab					/etc
+
+debian/quotaon.sh				/usr/share/quota/
+debian/quotaoff.sh				/usr/share/quota/
+debian/quotarpc.sh				/usr/share/quota/
+debian/quota-initial-check.sh			/usr/share/quota/
+
+debian/ldap-scripts/applySystemQuotas.pl	/usr/share/quota/ldap
+debian/ldap-scripts/edquota_editor		/usr/share/quota/ldap
+debian/ldap-scripts/quota.schema		/usr/share/quota/ldap
+debian/ldap-scripts/setquota-ldap.pl		/usr/share/quota/ldap
+debian/ldap-scripts/setSystemQuotas.pl		/usr/share/quota/ldap
+

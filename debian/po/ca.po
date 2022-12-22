@@ -1,0 +1,214 @@
+# Catalan translation of quota Debconf templates
+# Copyright © 2007, 2010 Software in the Public Interest, Inc.
+# This file is distributed under the same license as the quota package.
+# Miguel Gea Milvaques <xerakko@debian.org>, 2007.
+# Jordi Mallach <jordi@debian.org>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: quota 4.00~pre1-6\n"
+"Report-Msgid-Bugs-To: quota@packages.debian.org\n"
+"POT-Creation-Date: 2008-06-27 12:24+0200\n"
+"PO-Revision-Date: 2011-01-05 17:17+0100\n"
+"Last-Translator: Jordi Mallach <jordi@debian.org>\n"
+"Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid "Send daily reminders to users over quota?"
+msgstr "Voleu enviar recordatoris als usuaris sobre la quota?"
+
+#. Type: boolean
+#. Description
+#: ../templates:1001
+msgid ""
+"Enable this option if you want the warnquota utility to be run daily to "
+"alert users when they are over quota."
+msgstr "Activeu aquesta opció si voleu que la utilitat warnquota s'execute diàriament per alertar els usuaris quan estiguen per damunt de la quota."
+
+#. Type: string
+#. Description
+#: ../templates:2001
+msgid "Phone support number of the admin:"
+msgstr "Número de telèfon de suport de l'administrador:"
+
+#. Type: string
+#. Description
+#: ../templates:2001
+msgid ""
+"Enter the phone number a user can call if he needs assistance with his "
+"\"over quota\" emails. You do not have to enter anything here if you specify "
+"a signature later."
+msgstr "Introduïu el número de telèfon al qual puga trucar un usuari si necessita ajuda amb aquests correus de «per damunt de la quota». No heu d'introduir res ací si especifiqueu una signatura després."
+
+#. Type: string
+#. Description
+#: ../templates:3001
+msgid "Support email of the admin:"
+msgstr "Correu de suport de l'administrador:"
+
+#. Type: string
+#. Description
+#: ../templates:3001
+msgid ""
+"Enter the email address a user can write to if he needs assistance with his "
+"\"over quota\" emails. You do not have to enter anything here if you specify "
+"a signature later."
+msgstr "Introduïu l'adreça de correu a la qual pot escriure un usuari si necessita assistència amb els seus correus de «per damunt de la quota». No heu d'introduir res ací si especifiqueu una signatura després."
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid "From header of warnquota emails:"
+msgstr "Capçalera «De» dels correus warnquota:"
+
+#. Type: string
+#. Description
+#: ../templates:4001
+msgid ""
+"The email address you specify here is used as the \"From:\" field of any "
+"mail sent by the warnquota utility."
+msgstr "L'adreça de correu que especifiqueu ací s'empra com a camp «De:» de qualsevol correu que s'envie amb la utilitat warnquota."
+
+#. Type: string
+#. Description
+#: ../templates:5001
+msgid "Message of warnquota emails:"
+msgstr "Missatge dels correus del warnquota:"
+
+#. Type: string
+#. Description
+#: ../templates:5001
+msgid ""
+"The text you specify here is used as message in any mail sent by the "
+"warnquota utility. Use \"|\" to specify a line break. Leave empty if you "
+"want the default message."
+msgstr ""
+"El text que especifiqueu ací s'empra com a missatge en qualsevol correu que "
+"envie la utilitat warnquota. Empreu «|» per donar un salt de línia. "
+"Deixeu-ho buit si voleu el missatge per defecte."
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid "Signature of warnquota emails:"
+msgstr "Signatura dels correus de warnquota:"
+
+#. Type: string
+#. Description
+#: ../templates:6001
+msgid ""
+"The text you specify here is used as signature in any mail sent by the "
+"warnquota utility. Use \"|\" to specify a line break. Leave empty if you "
+"want the default signature."
+msgstr ""
+"El text que especifiqueu ací s'empra com a signatura en qualsevol correu "
+"que s'envie amb la utilitat warnquota. Empreu «|» per donar un salt de "
+"línia. Deixeu-ho buit si voleu la signatura per defecte."
+
+#. Type: note
+#. Description
+#: ../templates:7001
+msgid "rpc.rquota behaviour changed"
+msgstr "El comportament del rpc.rquota ha canviat"
+
+#. Type: note
+#. Description
+#: ../templates:7001
+msgid ""
+"The behaviour of rpc.rquotad changed. To be able to set quota rpc.rquotad "
+"has to be started with option '-S'."
+msgstr ""
+"El comportament del rpc.rquoatd ha canviat. Per poder canviar el rpc.rquotad "
+"s'ha d'iniciar amb l'opció «-S»."
+
+#. Type: string
+#. Description
+#: ../templates:8001
+msgid "Message of warnquota group emails:"
+msgstr "Missatge dels correus del warnquota per grups:"
+
+#. Type: string
+#. Description
+#: ../templates:8001
+msgid ""
+"The text you specify here is used as message in any mail sent by the "
+"warnquota utility for groups that are over quota. Use \"|\" to specify a "
+"line break. Leave empty if you want the default message."
+msgstr "El text que especifiqueu ací s'empra com a missatge en qualsevol correu que envie el warnquota als grups que estiguen per dalt de quota. Empreu «|» per especificar un salt de línia. Deixeu-ho buit si voleu el missatge per defecte."
+
+#. Type: string
+#. Description
+#: ../templates:9001
+msgid "Subject header of warnquota emails:"
+msgstr "Capçalera «Assumpte» dels correus del warnquota:"
+
+#. Type: string
+#. Description
+#: ../templates:9001
+msgid ""
+"The text you specify here is used as the \"Subject:\" field of any mail sent "
+"by the warnquota utility."
+msgstr "El text que especifiqueu ací s'empra com el camp «Assumpte:» de qualsevol missatge enviat per la utilitat warnquota."
+
+#. Type: string
+#. Description
+#: ../templates:10001
+msgid "CC header of warnquota emails:"
+msgstr "Capçalera «CC» dels correus de warnquota:"
+
+#. Type: string
+#. Description
+#: ../templates:10001
+msgid ""
+"The text you specify here is used as the \"CC:\" field of any mail sent by "
+"the warnquota utility."
+msgstr "El text que especifiqueu ací s'empra com el camp «CC:» de qualsevol correu enviat per la utilitat warnquota."
+
+#. Type: string
+#. Description
+#: ../templates:11001
+msgid "Character set in which the e-mail is sent:"
+msgstr "Joc de caràcters en què s'envia el correu electrònic:"
+
+#. Type: string
+#. Description
+#: ../templates:11001
+msgid ""
+"The text you specify here is used as the \"charset:\" field in the MIME "
+"header of any mail sent by the warnquota utility."
+msgstr "El text que especifiqueu ací s'empra com el camp «charset:» de la capçalera MIME de qualsevol correu enviat per la utilitat warnquota."
+
+#. Type: string
+#. Description
+#: ../templates:12001
+msgid "Time slot in which admin gets email:"
+msgstr "Espai de temps en el qual l'administrador rep correu:"
+
+#. Type: string
+#. Description
+#: ../templates:12001
+msgid ""
+"During this time slot before the end of the grace period admin will be CCed "
+"on all generated emails. Leave empty to get the whole grace period."
+msgstr "Durant aquest espai de temps abans d'acabar el període de gràcia, l'administrador s'afegirà al CC en tots els correus generats. Deixeu-ho buit per tenir el període de gràcia complet."
+
+#. Type: string
+#. Description
+#: ../templates:13001
+msgid "Signature of warnquota group emails:"
+msgstr "Signatura dels correus de warnquota per grups:"
+
+#. Type: string
+#. Description
+#: ../templates:13001
+msgid ""
+"The text you specify here is used as signature in any mail sent by the "
+"warnquota utility for groups that are over quota. Use \"|\" to specify a "
+"line break. Leave empty if you want the default message."
+msgstr "El text que especifiqueu ací s'empra com a signatura en qualsevol correu enviat per la utilitat warnquota per grups que estan per damunt de la quota. Empreu «|» per especificar un salt de línia. Deixeu-ho buit si voleu el missatge per defecte."

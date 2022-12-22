@@ -1,0 +1,22 @@
+Source: quota
+Section: admin
+Priority: optional
+Maintainer: Michael Meskes <meskes@debian.org>
+Build-Depends: debhelper-compat (= 13), gettext, libwrap0-dev,
+	       e2fslibs-dev, po-debconf (>= 0.5.0), libldap2-dev,
+	       quilt (>= 0.46-7), libnl-3-dev, libnl-genl-3-dev, libdbus-1-dev,
+	       libtirpc-dev
+Standards-Version: 4.5.1
+Homepage: http://sourceforge.net/projects/linuxquota
+
+Package: quota
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, debconf (>= 1.2.9) | debconf-2.0, lsb-base (>= 3.2-13)
+Pre-Depends: ${misc:Pre-Depends}
+Suggests: libnet-ldap-perl, rpcbind,  default-mta | mail-transport-agent
+Description: disk quota management tools
+ This package provides the standard set of utilities for manipulating
+ file system usage caps via the Linux Diskquota system. It can set hard
+ or soft limits with adjustable grace periods on block or inode usage for
+ users and groups. It allows users to check their quota status,
+ integrates with LDAP, and supports quotas on remote machines via NFS.

@@ -1,0 +1,117 @@
+#!/usr/bin/make -f
+# Sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+DPKG_EXPORT_BUILDFLAGS = 1
+
+include /usr/share/dpkg/buildflags.mk
+
+include /usr/share/dpkg/architecture.mk
+
+CFLAGS += -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc
+ifeq ($(DEB_HOST_ARCH),powerpc)
+CFLAGS += -D__BYTEORDER_HAS_U64__
+endif
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	dh_autoreconf
+	# Add here commands to configure the package.
+	LIBS="-ltirpc"; dh_auto_configure -- --enable-rpcsetquota=yes
+
+	touch configure-stamp
+
+build: build-stamp
+build-stamp: configure
+	dh_testdir
+
+	# Add here commands to compile the package.
+	$(MAKE)
+
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp *~ debian/*~ stamp-h1 configure-stamp
+
+	# Add here commands to clean up after the build process.
+	[ ! -f Makefile ] || $(MAKE) distclean
+
+	debconf-updatepo
+
+	dh_autoreconf_clean
+	dh_clean
+
+install: build-stamp
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+	# Add here commands to install the package into debian/quota.
+	$(MAKE) DESTDIR=`pwd`/debian/quota install
+
+	-mv `pwd`/debian/quota/usr/sbin/quotacheck `pwd`/debian/quota/sbin
+	-mv `pwd`/debian/quota/usr/sbin/quotaon `pwd`/debian/quota/sbin
+	-mv `pwd`/debian/quota/usr/sbin/quotaoff `pwd`/debian/quota/sbin
+
+# Build architecture-independent files here.
+binary-indep: build install
+# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_install
+	-chmod 755 `pwd`/debian/quota/usr/share/quota/ldap/setquota-ldap.pl
+	-chmod 755 `pwd`/debian/quota/usr/share/quota/*.sh
+	dh_installdebconf	
+	dh_installdocs
+	dh_installexamples
+	dh_installmenu
+	dh_installsystemd quota.service
+	dh_installsystemd --name=quotarpc quotarpc.service
+	dh_installinit --no-start
+	dh_installinit --name=quotarpc
+	#
+	# dh_installinit cannot be configured to not install the defaults
+	# file for quotarpc, so we have to manually delete it
+	#
+	-rm -rf `pwd`/debian/quota/etc/default/quotarpc
+	dh_installcron
+	dh_installman
+	# remove man pages already in libc
+	-rm -rf `pwd`/debian/quota/usr/share/man/man2
+	# and include files in libc-dev
+	-rm -rf `pwd`/debian/quota/usr/include
+	dh_installinfo
+	dh_installchangelogs Changelog
+	dh_lintian
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install
+
+%:      %pod
+	pod2man \
+		--section=`echo $@ | sed 's/^.*\.//'` \
+		--center="Debian GNU/Linux manual"\
+		--date="Debian Project"\
+		--release="`date '+%B %Y'`" \
+	$< >,$@ && mv -f ,$@ $@;\
+	rm -f ,$@
